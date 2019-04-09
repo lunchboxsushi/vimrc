@@ -26,42 +26,46 @@ Plug 'shougo/echodoc'
 Plug 'jiangmiao/auto-pairs'
 Plug 'wincent/terminus'
 Plug 'leafgarland/typescript-vim'
+Plug 'fatih/vim-go'
 call plug#end()
 
-" disable readonly when files are opened
-set noro
-"set cmdheight=2
+"############## VIM DEFAULT CONFIGURATIONS ###################
+"
+"disable readonly when files are opened
+set noro 
 
-" disable bell in vim
-set noerrorbells visualbell t_vb=
-set belloff=all
-syntax on
-filetype plugin on
-color dracula
+set noerrorbells visualbell t_vb= 	"disable visual bell
+set belloff=all				"disable sound bell
 
-" UTF-8 Default
-set encoding=utf-8
-set fileencoding=utf-8
+syntax on		"turn on highlights for syntax/text
+filetype plugin on	"context checking for filetypes and related plugins
+set nobackup		"no backup files
+set nowritebackup	"no backup while editing
+set noswapfile 		"no swap files
 
-" remove menu options
+color dracula "Theme
+
+set encoding=utf-8 	"UTF-8 Default
+set fileencoding=utf-8 	"UTF-8 Default
+
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
-" set default font
-set guifont=Source\ Code\ Pro:h9
-
-" make sure files stay in buffers instead of being removed
-set hidden
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h9 "set default font
+set hidden "files stay in buffers instead of being removed
 
 " set default directory of .swp files that are used to store changes in
 " buffers in case of crashing
 set directory^=$HOME/.vim/temp//
 
+"############## PLUGIN CONFIGURATIONS ###################
+"
 " airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme='dark'
+let g:airline_powerline_fonts = 1 	"airline styling
+let g:airline_theme='dark'		"airline colors
+
 " ctrl p
 let g:ctrlp_custom_ignore = 'node_modules'
 let g:ctrlp_by_filename = 1
@@ -72,6 +76,10 @@ set updatetime=100
 
 " numbertoggle 
 set number norelativenumber
+
+" set 80 golden rule - line rule
+" highlight ColorColumn ctermbg=black guibg=black   					
+" set colorcolumn=80
 
 " indent rules
 
